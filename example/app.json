@@ -7,16 +7,15 @@
     "description": "Example app for react-native-simple-theme",
     "privacy": "public",
     "version": "1.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "userInterfaceStyle": "automatic"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "userInterfaceStyle": "automatic",
+    "android": {
+      "userInterfaceStyle": "automatic"
+    }
   }
 }

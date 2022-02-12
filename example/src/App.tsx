@@ -1,31 +1,65 @@
-import * as React from 'react';
+import React from 'react';
+import { Text, View } from 'react-native';
+// @ts-expect-error
+import { createThemedStyles, ThemeProvider, useThemeStyle } from 'react-native-simple-theme';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-simple-theme';
+const theme = {
+  light: {
+    primary: '#ff0000',
+    secondary: '#00ff00',
+  },
+  dark: {
+    primary: '#0000ff',
+    secondary: '#ff00ff',
+  },
+};
 
-export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+type PaletteType = typeof theme;
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace ReactNativeSimpleTheme {
+    interface ThemePalette extends PaletteType {}
+  }
+}
+
+const AppProvider = ({ children }: { children: React.ReactNode }) => (
+  <ThemeProvider>{children}</ThemeProvider>
+);
+
+const TestComponent = () => {
+  const style = useThemeStyle(styles);
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View style={style.container}>
+      <View style={style.box}>
+        <Text style={style.text}>Test theme text</Text>
+      </View>
     </View>
+  );
+};
+
+export default function App() {
+  return (
+    <AppProvider>
+      <TestComponent />
+    </AppProvider>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles((palette) => ({
+  text: {
+    color: palette.primary,
+    padding: 10,
+  },
+  box: {
+    height: 100,
+    width: 100,
+    backgroundColor: palette.secondary,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
+}));
