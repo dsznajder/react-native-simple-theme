@@ -1,6 +1,6 @@
 {
   "name": "react-native-simple-theme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple and small theme manager for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -8,14 +8,8 @@
   "react-native": "src/index",
   "source": "src/index",
   "files": [
-    "src",
-    "lib",
-    "!lib/typescript/example",
-    "!android/build",
-    "!ios/build",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__"
+    "src/",
+    "lib/"
   ],
   "scripts": {
     "test": "jest",
@@ -143,5 +137,8 @@
       "path": "lib/module/index.js",
       "limit": "2kb"
     }
-  ]
+  ],
+  "dependencies": {
+    "react-native-simple-theme": "0.1.1"
+  }
 }
