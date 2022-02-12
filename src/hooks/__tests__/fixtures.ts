@@ -1,7 +1,12 @@
+/* istanbul ignore file */
+
 export const mockedTheme = {
   default: {
     primary: '#f0f',
     secondary: '#0f0',
+    text: {
+      primary: '#000',
+    },
   },
   dark: {
     primary: '#000',

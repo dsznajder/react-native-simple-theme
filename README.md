@@ -143,6 +143,5 @@ MIT
 ### TODO:
 
 - [ ] Documentation
-- [ ] Add tests
 - [ ] Optimizations
 - [ ] Reduce bundle size to minimum

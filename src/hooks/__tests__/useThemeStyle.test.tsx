@@ -72,4 +72,23 @@ describe('useThemeStyle', () => {
       expect((style.current.label as TextStyle).color).toBe(mockedTheme.default.secondary);
     });
   });
+
+  test('should throw an error for unsupported theme usage', () => {
+    const customTheme = 'custom';
+    const mockedGetThemeName = jest.fn().mockReturnValue(customTheme);
+    const styleFactory = createThemedStyles((palette) => ({
+      container: { backgroundColor: palette.primary },
+      label: { color: palette.secondary },
+    }));
+
+    const { result } = renderHook(() => useThemeStyle(styleFactory), {
+      wrapper: ({ children }) => (
+        <ThemeProvider value={{ themes: mockedTheme, getThemeName: mockedGetThemeName }}>
+          {children}
+        </ThemeProvider>
+      ),
+    });
+
+    expect(result.error?.message).toBe(`Theme not defined: ${customTheme}`);
+  });
 });

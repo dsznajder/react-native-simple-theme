@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+// @ts-expect-error
 import { createThemedStyles, ThemeProvider, useThemeStyle } from 'react-native-simple-theme';
 
 const theme = {
