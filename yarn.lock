@@ -8268,6 +8268,13 @@ react-native-simple-theme@0.1.1:
   dependencies:
     react-native-simple-theme "0.1.0"
 
+react-native-simple-theme@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-simple-theme/-/react-native-simple-theme-0.1.2.tgz#7efffa2ff96bf16f837f36038d76a5265098794b"
+  integrity sha512-3xwt1i4HQUj+nFGVaSnaJI+LYF7HycFfhLkA61ISevy5BWTMEIBSBuJnJzpC5WjHn9zxj1mA5KZ9hu8mIv7Srw==
+  dependencies:
+    react-native-simple-theme "0.1.1"
+
 react-native@0.67.2:
   version "0.67.2"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.67.2.tgz#312224bc2271c3cecd374d4bc425619cff4ea5dc"

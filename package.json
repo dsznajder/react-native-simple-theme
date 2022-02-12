@@ -1,6 +1,6 @@
 {
   "name": "react-native-simple-theme",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple and small theme manager for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -28,7 +28,7 @@
     "android"
   ],
   "repository": "https://github.com/dsznajder/react-native-simple-theme",
-  "author": "Damian Sznajder (https://github.com/dsznajder), Michał Kantor (https://github.com/kantorm)",
+  "author": "Damian Sznajder <damsznajder@gmail.com>, Michal Kantor <kantorm96@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dsznajder/react-native-simple-theme/issues"
@@ -139,6 +139,6 @@
     }
   ],
   "dependencies": {
-    "react-native-simple-theme": "0.1.1"
+    "react-native-simple-theme": "0.1.2"
   }
 }
