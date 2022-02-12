@@ -13,8 +13,6 @@ Fully typed and easy to extend with your own themes.
 yarn add react-native-simple-theme
 ```
 
-const theme = { light: { palette: { primary: ''}}}
-
 ## API
 
 |            Methods | Params                                                                              | Description                                                                                                                                |
@@ -130,6 +128,11 @@ const Example = () => {
 ```
 
 ## Contributing
+
+### Setup
+
+1. `yarn`
+2. Happy coding
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 

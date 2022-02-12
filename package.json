@@ -97,7 +97,8 @@
   },
   "eslintIgnore": [
     "node_modules/",
-    "lib/"
+    "lib/",
+    "example"
   ],
   "prettier": {
     "bracketSameLine": false,
