@@ -1,5 +1,6 @@
 import { useColorScheme } from 'react-native';
-import type { ThemeName } from 'src/types';
+
+import type { ThemeName } from '../types';
 
 import { useThemeContext } from './useThemeContext';
 

@@ -139,3 +139,10 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
+
+### TODO:
+
+- [ ] Documentation
+- [ ] Add tests
+- [ ] Optimizations
+- [ ] Reduce bundle size to minimum
