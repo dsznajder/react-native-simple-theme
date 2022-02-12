@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-// @ts-expect-error
 import { createThemedStyles, ThemeProvider, useThemeStyle } from 'react-native-simple-theme';
 
 const theme = {
@@ -24,7 +23,7 @@ declare global {
 }
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => (
-  <ThemeProvider>{children}</ThemeProvider>
+  <ThemeProvider value={{ themes: theme }}>{children}</ThemeProvider>
 );
 
 const TestComponent = () => {

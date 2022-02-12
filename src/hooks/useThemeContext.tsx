@@ -3,10 +3,8 @@ import React, { createContext, useContext } from 'react';
 import type { ThemeContextValue } from '../types';
 
 const initialTheme: ThemeContextValue = {
-  themes: {
-    light: { primary: '#000', secondary: '#fff' },
-    dark: { primary: '#fff', secondary: '#000' },
-  },
+  // @ts-expect-error This error shows because of mocking in tests
+  themes: {},
 };
 
 const ThemeContext = createContext(initialTheme);
