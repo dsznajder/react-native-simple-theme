@@ -1,6 +1,6 @@
 # react-native-simple-theme
 
-🚧🚧🚧 WORK IN PROGRESS 🚧🚧🚧
+# 🚧🚧🚧 WORK IN PROGRESS 🚧🚧🚧
 
 ## Description
 
