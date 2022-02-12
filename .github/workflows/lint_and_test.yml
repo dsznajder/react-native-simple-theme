@@ -40,5 +40,6 @@ jobs:
         run: |
           yarn lint
           yarn typescript
-  #     - name: Test
-  #       run: yarn test:ci
+
+      - name: Test
+        run: yarn test:ci

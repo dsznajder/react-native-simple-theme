@@ -8288,25 +8288,6 @@ react-native-codegen@^0.0.8:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
-react-native-simple-theme@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-simple-theme/-/react-native-simple-theme-0.1.0.tgz#89fcb105489bf637e606338fb990165f5e56cc26"
-  integrity sha512-bURNHpxlnRvWBCVkZBckVK5ImfSYtBXAlG3OkqUg+xBPB1DWGdr5v/6uuQLhgazg6135YopfNFZyzYNUqgbzsg==
-
-react-native-simple-theme@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-simple-theme/-/react-native-simple-theme-0.1.1.tgz#0b469b43148af6455104f10c43aaf5f23ab422c7"
-  integrity sha512-RvmAyNQkNQdnbIn8EWXgVGMuFCXuT9jjuCEdYbuSqjPovcOwPv6KMmo5bUwggBBr0zjczZENiEQrkTMPMOD8zg==
-  dependencies:
-    react-native-simple-theme "0.1.0"
-
-react-native-simple-theme@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/react-native-simple-theme/-/react-native-simple-theme-0.1.2.tgz#7efffa2ff96bf16f837f36038d76a5265098794b"
-  integrity sha512-3xwt1i4HQUj+nFGVaSnaJI+LYF7HycFfhLkA61ISevy5BWTMEIBSBuJnJzpC5WjHn9zxj1mA5KZ9hu8mIv7Srw==
-  dependencies:
-    react-native-simple-theme "0.1.1"
-
 react-native@0.67.2:
   version "0.67.2"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.67.2.tgz#312224bc2271c3cecd374d4bc425619cff4ea5dc"

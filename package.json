@@ -1,6 +1,6 @@
 {
   "name": "react-native-simple-theme",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Simple and small theme manager for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "test": "jest",
+    "test:ci": "jest --runInBand --coverage",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
@@ -117,8 +118,6 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      "commonjs",
-      "module",
       "typescript"
     ]
   },

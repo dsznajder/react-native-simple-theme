@@ -19,4 +19,50 @@ describe('useThemeValue', () => {
 
     expect(result.current).toBe(mockedTheme.default.primary);
   });
+
+  test('should return a value for nested given path for current theme', () => {
+    const mockedGetThemeName = jest.fn().mockReturnValue('default');
+    // @ts-expect-error We are trying to get nested value that exists only in one theme
+    const { result } = renderHook(() => useThemeValue('text.primary'), {
+      wrapper: ({ children }) => (
+        <ThemeProvider value={{ themes: mockedTheme, getThemeName: mockedGetThemeName }}>
+          {children}
+        </ThemeProvider>
+      ),
+    });
+
+    expect(result.current).toBe(mockedTheme.default.text.primary);
+  });
+
+  test('should throw an error if current theme does not satisfy given path', () => {
+    const themeName = 'light';
+    const valuePath = 'text.primary';
+    const mockedGetThemeName = jest.fn().mockReturnValue(themeName);
+    // @ts-expect-error We are trying to get nested value that exists only in one theme
+    const { result } = renderHook(() => useThemeValue(valuePath), {
+      wrapper: ({ children }) => (
+        <ThemeProvider value={{ themes: mockedTheme, getThemeName: mockedGetThemeName }}>
+          {children}
+        </ThemeProvider>
+      ),
+    });
+
+    expect(result.error?.message).toBe(
+      `Theme value "${valuePath}" was not found in "${themeName}" Theme`,
+    );
+  });
+
+  test('should throw an error for unsupported theme usage', () => {
+    const customTheme = 'custom';
+    const mockedGetThemeName = jest.fn().mockReturnValue(customTheme);
+    const { result } = renderHook(() => useThemeValue('primary'), {
+      wrapper: ({ children }) => (
+        <ThemeProvider value={{ themes: mockedTheme, getThemeName: mockedGetThemeName }}>
+          {children}
+        </ThemeProvider>
+      ),
+    });
+
+    expect(result.error?.message).toBe(`Theme not defined: ${customTheme}`);
+  });
 });

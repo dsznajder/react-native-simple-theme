@@ -5,14 +5,13 @@ import type { ThemeName } from '../types';
 import { useThemeContext } from './useThemeContext';
 
 const useThemeName = () => {
-  const { getThemeName, themes } = useThemeContext();
-  const colorScheme = useColorScheme();
+  const { getThemeName } = useThemeContext();
 
-  if (getThemeName) {
-    return getThemeName();
-  } else {
-    return colorScheme || (Object.keys(themes)[0] as ThemeName);
-  }
+  // We are not expecting the useColorScheme hook to return anything besides 'light' or 'dark'
+  // @ts-expect-error
+  const colorScheme: ThemeName = useColorScheme();
+
+  return getThemeName?.() || colorScheme;
 };
 
 export default useThemeName;
