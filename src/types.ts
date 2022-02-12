@@ -3,10 +3,8 @@ import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace ReactNativeSimpleTheme {
-    interface ThemePalette {
-      light: { primary: string; secondary: string };
-      dark: { primary: string; secondary: string };
-    }
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface ThemePalette {}
   }
 }
 
@@ -32,7 +30,7 @@ export type NamedStyles<T> = {
 };
 
 export type CreateThemedStyleFunc = <T>(
-  factory: (palette: ReactNativeSimpleTheme.ThemePalette) => NamedStyles<T>,
+  factory: (palette: ReactNativeSimpleTheme.ThemePalette[ThemeName]) => NamedStyles<T>,
 ) => typeof factory;
 
 export type ThemePaths = StringPath<ReactNativeSimpleTheme.ThemePalette[ThemeName]>;
