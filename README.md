@@ -1,7 +1,5 @@
 # react-native-simple-theme
 
-# 🚧🚧🚧 WORK IN PROGRESS 🚧🚧🚧
-
 ## Description
 
 Small and simple theme manager for react-native with out-of-the-box support for dark and light themes based on system settings (via `useColorScheme` hook from `react-native`).
@@ -17,17 +15,23 @@ yarn add react-native-simple-theme
 
 |            Methods | Params                                                                              | Description                                                                                                                                |
 | -----------------: | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-|       useThemeName | -                                                                                   | returns name of current theme returned from context.getThemeName or value of (useColorScheme)[https://reactnative.dev/docs/usecolorscheme] |
+|       useThemeName | -                                                                                   | returns name of current theme returned from context.getThemeName or value of [useColorScheme](https://reactnative.dev/docs/usecolorscheme) |
 |      useThemeStyle | styleFactory - function returned from `createThemedStyles`                          | returns styled object with applied theme values                                                                                            |
 |      useThemeValue | themePath - path to theme value i.e. `text.primary`                                 | returns value from defined theme by path                                                                                                   |
 | createThemedStyles | factoryFunction - function which gets theme as first param and returns style object | returns style factory function which should be provided to `useThemeStyle` hook                                                            |
+
+|    Components | Props                | Description                                                         | Default value                             |
+| ------------: | -------------------- | ------------------------------------------------------------------- | ----------------------------------------- |
+| ThemeProvider | `value`              | context object containing themes and optional getThemeName function | -                                         |
+|             - | `value.themes`       | object containing themes definition. _Required_                     | {}                                        |
+|             - | `value.getThemeName` | optional function returning your own theme name based on values     | `useColorScheme` hook from `react-native` |
 
 ## Typescript
 
 To type the theme object you can use the following code:
 
 ```ts
-const themePalette = {
+const themes = {
   light: {
     first: '#fff',
     second: '#000',
@@ -38,7 +42,7 @@ const themePalette = {
   },
 };
 
-type ThemePaletteType = typeof themePalette;
+type ThemePaletteType = typeof themes;
 
 declare global {
   namespace ReactNativeSimpleTheme {
@@ -56,7 +60,7 @@ It's recommended to place it inside `typings/index.d.ts` to work out of the box 
 ```tsx
 import { createThemedStyles, ThemeProvider, useThemeStyle } from 'react-native-simple-theme';
 
-const theme = {
+const themes = {
   light: {
     primary: '#fff',
     secondary: '#000',
@@ -68,7 +72,7 @@ const theme = {
 };
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => (
-  <ThemeProvider value={{ theme }}>{children}</ThemeProvider>
+  <ThemeProvider value={{ themes }}>{children}</ThemeProvider>
 );
 
 const TestComponent = () => {
@@ -112,8 +116,8 @@ const styles = createThemedStyles((palette) => ({
 - `useThemeValue` / `useValueBasedOnTheme` usage:
 
 ```tsx
-// theme passed to ThemeProvider
-const theme = {
+// themes passed to ThemeProvider
+const themes = {
   light: { icon: { primary: '#aaa' } },
   dark: { icon: { primary: '#999' } },
 };
@@ -127,12 +131,33 @@ const Example = () => {
 };
 ```
 
+- `ThemeProvider` usage:
+
+```tsx
+const themes = {
+  blue: { icon: { primary: '#00f' } },
+  red: { icon: { primary: '#f00' } },
+};
+
+const Example = () => {
+  const getThemeName = useCallback(() => {
+    const currentAppTheme = getAppTheme(); // returns 'blue' or 'red'
+    return currentAppTheme;
+  }, [getAppTheme]);
+
+  return (
+    <ThemeProvider value={{ themes, getThemeName }}>
+      <ExampleComponent />
+    </ThemeProvider>
+  );
+};
+```
+
 ## Contributing
 
 ### Setup
 
 1. `yarn`
-2. Happy coding
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
