@@ -6,11 +6,13 @@ import { createThemedStyles, ThemeProvider, useThemeStyle } from 'react-native-s
 const theme = {
   light: {
     primary: '#ff0000',
-    secondary: '#00ff00',
+    background: '#fff',
+    secondary: '#000',
   },
   dark: {
     primary: '#0000ff',
-    secondary: '#ff00ff',
+    secondary: '#fff',
+    background: '#000',
   },
 };
 
@@ -28,7 +30,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => (
 );
 
 const TestComponent = () => {
-  const style = useThemeStyle(styles);
+  const style = useThemeStyle(themedStyle);
 
   return (
     <View style={style.container}>
@@ -47,7 +49,7 @@ export default function App() {
   );
 }
 
-const styles = createThemedStyles((palette) => ({
+const themedStyle = createThemedStyles((palette) => ({
   text: {
     color: palette.primary,
     padding: 10,
@@ -59,6 +61,7 @@ const styles = createThemedStyles((palette) => ({
   },
   container: {
     flex: 1,
+    backgroundColor: palette.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
