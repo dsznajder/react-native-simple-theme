@@ -51,6 +51,7 @@
     "eslint-config-dsznajder": "0.1.12",
     "husky": "7.0.4",
     "jest": "27.5.1",
+    "jest-coverage-badges": "1.1.2",
     "lint-staged": "12.3.3",
     "pod-install": "0.1.31",
     "prettier": "2.5.1",

@@ -1,5 +1,12 @@
 # react-native-simple-theme
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dsznajder/react-native-simple-theme/lint_and_test?label=lint%20%26%20test)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/dsznajder/react-native-simple-theme/develop?label=develop)
+![npm](https://img.shields.io/npm/v/react-native-simple-theme?label=version&style=for-the-badge)
+![npm bundle size](https://img.shields.io/bundlephobia/min/react-native-simple-theme?color=%232596be&label=size&logo=size&logoColor=%232596be&style=for-the-badge)
+![npm](https://img.shields.io/npm/dm/react-native-simple-theme?style=for-the-badge)
+![NPM](https://img.shields.io/npm/l/react-native-simple-theme?style=for-the-badge)
+
 ## Description
 
 Small and simple theme manager for react-native with out-of-the-box support for dark and light themes based on system settings (via `useColorScheme` hook from `react-native`).
