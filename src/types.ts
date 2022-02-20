@@ -19,6 +19,7 @@ type StringPathImpl<T, K extends keyof T> = K extends string
 type StringPath<T> = StringPathImpl<T, keyof T> | keyof T;
 
 export type ThemeName = keyof ReactNativeSimpleTheme.ThemePalette;
+export type ThemeValues<T> = { [key in ThemeName]: T };
 
 export type ThemeContextValue = {
   themes: ReactNativeSimpleTheme.ThemePalette;

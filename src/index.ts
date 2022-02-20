@@ -4,3 +4,4 @@ export { default as useThemeName } from './hooks/useThemeName';
 export { default as useThemeStyle } from './hooks/useThemeStyle';
 export { default as useThemeValue } from './hooks/useThemeValue';
 export { default as useValueBasedOnTheme } from './hooks/useValueBasedOnTheme';
+export type { ThemeName, ThemePaths } from './types';
