@@ -54,7 +54,7 @@
     "jest": "27.5.1",
     "jest-coverage-badges": "1.1.2",
     "lint-staged": "12.3.4",
-    "minimist": "1.2.5",
+    "minimist": "1.2.6",
     "node-fetch": "3.2.0",
     "pod-install": "0.1.32",
     "prettier": "2.5.1",
