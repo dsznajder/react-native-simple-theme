@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import ThemeProvider from '../useThemeContext';
 import useValueBasedOnTheme from '../useValueBasedOnTheme';
@@ -18,13 +18,14 @@ describe('useValueBasedOnTheme', () => {
       .mockReturnValueOnce('light')
       .mockReturnValueOnce('dark');
 
-    const { result, rerender } = renderHook(
+    const { result, rerender } = renderHook<{ children: ReactNode }, ReactNode>(
       () => useValueBasedOnTheme({ default: defaultValue, light: lightValue, dark: darkValue }),
       {
         wrapper: ({ children }) => (
-          <ThemeProvider value={{ themes: mockedTheme, getThemeName: mockedGetThemeName }}>
-            {children}
-          </ThemeProvider>
+          <ThemeProvider
+            children={children}
+            value={{ themes: mockedTheme, getThemeName: mockedGetThemeName }}
+          />
         ),
       },
     );

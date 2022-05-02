@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import ReactNative, { TextStyle } from 'react-native';
 
 import createThemedStyles from '../../createThemedStyles';
@@ -18,7 +18,10 @@ describe('useThemeStyle', () => {
         label: { color: palette.secondary },
       }));
 
-      const { result: style } = renderHook(() => useThemeStyle(styleFactory), {
+      const { result: style } = renderHook<
+        { children: ReactNode },
+        ReturnType<typeof styleFactory>
+      >(() => useThemeStyle(styleFactory), {
         wrapper: ({ children }) => (
           <ThemeProvider value={{ themes: mockedTheme }}>{children}</ThemeProvider>
         ),
@@ -38,7 +41,10 @@ describe('useThemeStyle', () => {
         label: { color: palette.secondary },
       }));
 
-      const { result: style } = renderHook(() => useThemeStyle(styleFactory), {
+      const { result: style } = renderHook<
+        { children: ReactNode },
+        ReturnType<typeof styleFactory>
+      >(() => useThemeStyle(styleFactory), {
         wrapper: ({ children }) => (
           <ThemeProvider value={{ themes: mockedTheme }}>{children}</ThemeProvider>
         ),
@@ -60,7 +66,10 @@ describe('useThemeStyle', () => {
         label: { color: palette.secondary },
       }));
 
-      const { result: style } = renderHook(() => useThemeStyle(styleFactory), {
+      const { result: style } = renderHook<
+        { children: ReactNode },
+        ReturnType<typeof styleFactory>
+      >(() => useThemeStyle(styleFactory), {
         wrapper: ({ children }) => (
           <ThemeProvider value={{ themes: mockedTheme, getThemeName: mockedGetThemeName }}>
             {children}
@@ -81,13 +90,16 @@ describe('useThemeStyle', () => {
       label: { color: palette.secondary },
     }));
 
-    const { result } = renderHook(() => useThemeStyle(styleFactory), {
-      wrapper: ({ children }) => (
-        <ThemeProvider value={{ themes: mockedTheme, getThemeName: mockedGetThemeName }}>
-          {children}
-        </ThemeProvider>
-      ),
-    });
+    const { result } = renderHook<{ children: ReactNode }, ReturnType<typeof styleFactory>>(
+      () => useThemeStyle(styleFactory),
+      {
+        wrapper: ({ children }) => (
+          <ThemeProvider value={{ themes: mockedTheme, getThemeName: mockedGetThemeName }}>
+            {children}
+          </ThemeProvider>
+        ),
+      },
+    );
 
     expect(result.error?.message).toBe(`Theme not defined: ${customTheme}`);
   });
